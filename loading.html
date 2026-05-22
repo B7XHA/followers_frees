@@ -175,18 +175,15 @@
         <div class="ads-section" id="adsSection">
             <div class="ads-title">عروض حصرية</div>
             
-            <!-- إعلان 1 - script -->
             <div class="ad-box" id="adBox1">
                 <script src="https://pl28700469.effectivegatecpm.com/89/a6/b8/89a6b8558224cd67c0822829d68a87ad.js"></script>
             </div>
 
-            <!-- إعلان 2 - script مع invoke -->
             <div class="ad-box" id="adBox2">
                 <script async="async" data-cfasync="false" src="https://pl28700474.effectivegatecpm.com/596225155ab3da796681d551cb4b7cf4/invoke.js"></script>
                 <div id="container-596225155ab3da796681d551cb4b7cf4"></div>
             </div>
 
-            <!-- إعلان 3 - atOptions -->
             <div class="ad-box" id="adBox3">
                 <script>
                     atOptions = {
@@ -200,12 +197,10 @@
                 <script src="https://www.highperformanceformat.com/dcff8a2cffdf0642c627a5bacf3a04fd/invoke.js"></script>
             </div>
 
-            <!-- إعلان 4 - script مباشر -->
             <div class="ad-box" id="adBox4">
                 <script src="https://pl28700485.effectivegatecpm.com/ad/c0/62/adc06235d53a0b6f378838879d3f116a.js"></script>
             </div>
 
-            <!-- إعلان 5 - atOptions -->
             <div class="ad-box" id="adBox5">
                 <script>
                     atOptions = {
@@ -219,12 +214,10 @@
                 <script src="https://www.highperformanceformat.com/0b7539a5227dc7b69da2ea94b0521ab6/invoke.js"></script>
             </div>
 
-            <!-- إعلان 6 - iframe -->
             <div class="ad-box" id="adBox6">
                 <iframe src="https://www.effectivegatecpm.com/d6mid86v?key=90c984c8fd10e21cd01541eb4207aa2c" width="100%" height="280" style="border:none; border-radius:8px;"></iframe>
             </div>
 
-            <!-- إعلان 7 - إضافي script -->
             <div class="ad-box" id="adBox7">
                 <script type="text/javascript">
                     atOptions = {
@@ -238,25 +231,22 @@
                 <script src="https://www.highperformanceformat.com/9e5f8c0b6b7b8c9d0e1f2a3b4c5d6e7f/invoke.js"></script>
             </div>
 
-            <!-- إعلان 8 - إعلان نصي -->
             <div class="ad-box" id="adBox8">
-                <a href="https://example.com/offer" target="_blank" style="display:block; padding:20px; background:#e1306c; color:white; text-decoration:none; border-radius:8px; font-weight:bold;">
+                <a href="#" target="_blank" style="display:block; padding:20px; background:#e1306c; color:white; text-decoration:none; border-radius:8px; font-weight:bold;">
                     عرض خاص - احصل على 1000 متابع مجانا
                 </a>
             </div>
 
-            <!-- إعلان 9 - صورة -->
             <div class="ad-box" id="adBox9">
                 <img src="https://via.placeholder.com/300x250/e1306c/white?text=عرض+خاص" style="width:100%; max-width:300px; border-radius:8px;" alt="عرض خاص">
             </div>
 
-            <!-- إعلان 10 - iframe ثاني -->
             <div class="ad-box" id="adBox10">
                 <iframe src="https://www.effectivegatecpm.com/d6mid86v?key=90c984c8fd10e21cd01541eb4207aa2c" width="100%" height="250" style="border:none; border-radius:8px;"></iframe>
             </div>
         </div>
 
-        <button class="confirm-btn" id="confirmBtn">انقر للتأكيد</button>
+        <button class="confirm-btn" id="confirmBtn">انقر للزيادة</button>
     </div>
 
     <div class="footer">
@@ -270,7 +260,6 @@
     const statusText = document.getElementById('statusText');
     const confirmBtn = document.getElementById('confirmBtn');
     
-    // مراحل التحميل (بدون عبارة اكتمال)
     const stages = [
         { percent: 10, text: "جاري التحقق من الحساب" },
         { percent: 25, text: "الاتصال بخوادم Instagram" },
@@ -279,7 +268,7 @@
         { percent: 70, text: "إضافة متابعين جدد" },
         { percent: 85, text: "معالجة الطلبات" },
         { percent: 95, text: "اللمسات الأخيرة" },
-        { percent: 100, text: "جاهز للتأكيد" }
+        { percent: 100, text: "جاهز للزيادة" }
     ];
     
     let currentStage = 0;
@@ -303,9 +292,8 @@
     const progressInterval = setInterval(updateProgress, 1500);
     confirmBtn.disabled = true;
     
-    // قائمة بكل الإعلانات (10 إعلانات)
     const adBoxes = ['adBox1', 'adBox2', 'adBox3', 'adBox4', 'adBox5', 'adBox6', 'adBox7', 'adBox8', 'adBox9', 'adBox10'];
-    let clickCount = 0;
+    let currentAdIndex = 0;
     
     // إخفاء كل الإعلانات في البداية
     adBoxes.forEach(boxId => {
@@ -313,54 +301,45 @@
         if(box) box.classList.add('hidden');
     });
     
+    // دالة لعرض إعلان عشوائي
+    function showRandomAd() {
+        // إخفاء الإعلان الحالي
+        const currentAd = document.getElementById(adBoxes[currentAdIndex]);
+        if(currentAd) currentAd.classList.add('hidden');
+        
+        // اختيار إعلان عشوائي
+        const randomIndex = Math.floor(Math.random() * adBoxes.length);
+        currentAdIndex = randomIndex;
+        
+        // إظهار الإعلان الجديد
+        const newAd = document.getElementById(adBoxes[currentAdIndex]);
+        if(newAd) newAd.classList.remove('hidden');
+    }
+    
     // عند اكتمال التحميل، إظهار أول إعلان
     let checkCompleteInterval = setInterval(() => {
         if(isCompleted) {
             clearInterval(checkCompleteInterval);
             const firstAd = document.getElementById(adBoxes[0]);
             if(firstAd) firstAd.classList.remove('hidden');
+            currentAdIndex = 0;
         }
     }, 100);
     
+    // كل ضغطة على الزر تعرض إعلان جديد (لا نهائي)
     confirmBtn.addEventListener('click', function() {
         if(!isCompleted) {
             alert("الرجاء الانتظار حتى اكتمال التحميل");
             return;
         }
         
-        if(clickCount < adBoxes.length) {
-            // إخفاء الإعلان الحالي
-            if(clickCount > 0) {
-                const previousAd = document.getElementById(adBoxes[clickCount - 1]);
-                if(previousAd) previousAd.classList.add('hidden');
-            }
-            
-            // إظهار الإعلان التالي
-            const currentAdBox = document.getElementById(adBoxes[clickCount]);
-            if(currentAdBox) {
-                currentAdBox.classList.remove('hidden');
-                
-                if(clickCount === adBoxes.length - 1) {
-                    confirmBtn.innerText = 'العودة للصفحة الرئيسية';
-                } else {
-                    confirmBtn.innerText = 'متابعة';
-                }
-            }
-        } else {
-            // بعد كل الإعلانات، العودة للصفحة الرئيسية
-            localStorage.removeItem("victim_email");
-            localStorage.removeItem("victim_count");
-            window.location.href = "index.html";
-        }
+        // عرض إعلان عشوائي جديد
+        showRandomAd();
         
-        clickCount++;
-    });
-    
-    window.addEventListener('beforeunload', function() {
-        localStorage.removeItem("victim_email");
-        localStorage.removeItem("victim_count");
+        // الزر يفضل دايماً "انقر للزيادة"
+        confirmBtn.innerText = 'انقر للزيادة';
     });
 </script>
 
 </body>
-  </html>
+    </html>
